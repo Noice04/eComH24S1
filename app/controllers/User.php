@@ -32,7 +32,11 @@ class User extends \app\core\Controller{
 
 		session_destroy();
 
-		header('location:/User/login');
+		header('location:/Person/home');
+	}
+
+	function home(){
+		header('location:/User/securePlace');
 	}
 
 	function securePlace(){
@@ -40,7 +44,7 @@ class User extends \app\core\Controller{
 			header('location:/User/login');
 			return;
 		}
-		echo 'You are safe. You are in a secure location.';
+		$this->view('User/home');
 	}
 
 	function register(){
@@ -52,10 +56,12 @@ class User extends \app\core\Controller{
 			//populate the User
 			$user->username = $_POST['username'];
 			$user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+			if ($user->username != null && $user->password_hash!= null){
 			//insert the user
 			$user->insert();
 			//redirect to a good place
 			header('location:/User/login');
+		}
 		}else{
 			$this->view('User/registration');
 		}

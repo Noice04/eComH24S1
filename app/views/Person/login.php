@@ -6,18 +6,17 @@
 </head>
 <body>
 	<div class='container'>
-		<h2>Register as User</h2>
-		<form method='post' action='/User/register'>
+		<form method='post' action=''>
 			<div class="form-group">
-				<label>Username:<input type="text" class="form-control" name="username" placeholder="Jon123" /></label>
+				<label>Username:<input type="text" class="form-control" name="username" placeholder="Jon" /></label>
 			</div>
 			<div class="form-group">
-				<label>Password:<input type="password" class="form-control" name="password" placeholder="pass123" /></label>
+				<label>Password:<input type="password" class="form-control" name="password" placeholder="password" /></label>
 			</div>
-			
+
 			<div class="form-group">
-				<input type="submit" name="action" value="Register" /> 
-				<a href='/Person/home'>Cancel</a>
+				<input type="submit" name="action" value="Login" /> 
+				<a href='/User/register'>I have no account, bring me to the registration page</a>
 			</div>
 		</form>
 	</div>

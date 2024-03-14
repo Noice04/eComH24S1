@@ -6,6 +6,7 @@
 </head>
 <body>
 	<div class='container'>
+		<h2>User Login</h2>
 		<form method='post' action=''>
 			<div class="form-group">
 				<label>Username:<input type="text" class="form-control" name="username" placeholder="Jon" /></label>
@@ -16,7 +17,7 @@
 
 			<div class="form-group">
 				<input type="submit" name="action" value="Login" /> 
-				<a href='/User/register'>I have no account, bring me to the registration page</a>
+				<a href='/Person/register'>I have no account, bring me to the registration page</a>
 			</div>
 		</form>
 	</div>

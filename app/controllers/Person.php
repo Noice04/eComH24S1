@@ -12,7 +12,22 @@ class Person extends \app\core\Controller{
 
 	function register(){
 		//showing the register view
-		$this->view('Person/register');
+		if($_SERVER['REQUEST_METHOD'] === 'POST'){
+			//getting the user input and place it in an object
+			//create the new User
+			$user = new \app\models\User();
+			//populate the User
+			$user->username = $_POST['username'];
+			$user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+			//insert the user
+
+			$user->insert();
+			//redirect to a good place
+			header('location:/User/Home');
+		}else{
+			$this->view('Person/register');
+		}
+
 	}
 
 	function complete_registration(){
@@ -77,4 +92,12 @@ class Person extends \app\core\Controller{
 		//redirect to the list
 		header('location:/Person/');
 	}
+
+	//my code
+	function home(){
+		$this->view('Person/home');
+	}
+
+
+
 }
